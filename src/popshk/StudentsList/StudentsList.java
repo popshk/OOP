@@ -21,4 +21,7 @@ class StudentsList {
                     lisl=s;
     }
 
+    public Student getStudent(int n){
+       return lisl[n];
+    }
 }
