@@ -37,4 +37,15 @@ class Student {
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
+
+    public String toString(){
+
+        StringBuilder sb = new StringBuilder("[");
+            sb.append(this.name).append(" ")
+                    .append(this.lastName).append(" ").append(this.birthday.getDate())
+                    .append("/").append(this.birthday.getMonth()).append("/")
+                    .append(this.birthday.getYear()).append("]");
+
+                        return sb.toString();
+    }
 }
