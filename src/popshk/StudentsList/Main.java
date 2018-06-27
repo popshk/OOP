@@ -10,13 +10,16 @@ public class Main {
             list.add(new Student("Dima","Popkov",new Date(1994,7,19)));
             list.add(new Student("Gena","Greben",new Date(1968,4,23)));
             list.add(new Student("Anna","Lee",new Date(1998,10,7)));
-                list.delete(2);
 
                 int n = list.findByName("dima");
                 int m = list.findByLastName("grob");
+                int d = list.findByDate(new Date(1998,10,7));
             System.out.println(list.getStudent(n).toString());
-            System.out.println(list.getStudent(m).toString()+"\n");
+            System.out.println(list.getStudent(m).toString());
+            System.out.println(list.getStudent(d).toString()+"\n");
 
-                list.printAll();
+            list.printAll();
+            list.delete(2);
+            list.printAll();
     }
 }

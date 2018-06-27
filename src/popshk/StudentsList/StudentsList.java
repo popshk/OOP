@@ -1,5 +1,7 @@
 package popshk.StudentsList;
 
+import java.util.Date;
+
 class StudentsList {
     private Student [] lisl = new Student[2];
     private int i=0;
@@ -39,10 +41,18 @@ class StudentsList {
         return -1;
     }
 
+    public int findByDate(Date date){
+        for (int n=0;n<i;n++){
+            if (date.equals(lisl[n].getBirthday())) return n;
+        }
+        return -1;
+    }
+
 
     public void printAll(){
         for (int n=0;n<i;n++){
             System.out.println(lisl[n].toString());
         }
+        System.out.println();
     }
 }
