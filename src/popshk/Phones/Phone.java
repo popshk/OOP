@@ -1,13 +1,15 @@
 package popshk.Phones;
 
 public abstract class Phone {
-    private final String phone = "Phone";
+    protected String phoneName;
     protected boolean touch;
     protected boolean hasWiFi;
     protected double screenSize;
+    protected String number;
 
     public Phone(){
-        System.out.println("Phone");
+        phoneName = "Phone";
+        System.out.println(phoneName);
     }
 
     public boolean isTouch() {
@@ -22,8 +24,10 @@ public abstract class Phone {
         return screenSize;
     }
 
+    public String getNumber(){return number;}
+
     public void call(String number){
-        System.out.println(phone+" call to "+number);
+        System.out.println(phoneName+" call to "+number);
     }
 
     public abstract void sendSMS(String number,String message);
