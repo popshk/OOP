@@ -3,18 +3,16 @@ package popshk.Phones;
 public class Nokia1110 extends Phone {
 
     public Nokia1110(String number){
-        phoneName ="Nokia1110";
+        name = "Nokia";
         hasWiFi = false;
         touch = false;
         screenSize = 2.3;
         this.number = number;
-        System.out.println(phoneName);
     }
 
     @Override
     public void call(String number) {
         super.call(number);
-            System.out.println(phoneName+" call to "+number);
     }
 
     @Override
