@@ -13,10 +13,12 @@ public class Nokia1110 extends Phone {
     @Override
     public void call(String number) {
         super.call(number);
+        //and your addition, if be it.
     }
 
     @Override
     public void sendSMS(String number, String message) {
 
     }
+
 }
