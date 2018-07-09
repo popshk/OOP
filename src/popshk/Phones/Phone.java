@@ -6,6 +6,7 @@ public abstract class Phone {
     protected boolean hasWiFi;
     protected double screenSize;
     protected String number;
+    private String toCallNumber;
     private int callCounter =0;
 
     public Phone(){
@@ -29,14 +30,18 @@ public abstract class Phone {
         return callCounter;
     }
 
+    public String getToCallNumber(){return toCallNumber;}
+
+    public void answer(){
+        System.out.println(name+" "+number+" answer");
+    }
+
     public void call(String toCallNumber){
+        this.toCallNumber=toCallNumber;
         callCounter++;
         System.out.println(name+" "+this.number+" call to "+toCallNumber);
     }
 
-    public void answer(){
-        System.out.println(this.number+" answer");
-    }
-
     public abstract void sendSMS(String number,String message);
+
 }
