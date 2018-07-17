@@ -12,8 +12,9 @@ public class Main {
             list.add(new Student("Anna","Lee",new Date(1998,10,7)));
 
                 int n = list.findByName("dima");
-                int m = list.findByLastName("grob");
+                int m = list.findByLastName("g2rob");
                 int d = list.findByDate(new Date(1998,10,7));
+
             System.out.println(list.getStudent(n).toString());
             System.out.println(list.getStudent(m).toString());
             System.out.println(list.getStudent(d).toString()+"\n");

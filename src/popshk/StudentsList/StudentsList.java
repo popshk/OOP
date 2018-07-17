@@ -23,7 +23,8 @@ class StudentsList {
                     lisl=s; i--;
     }
 
-    public Student getStudent(int n){
+    public Student getStudent(int n) throws NotFoundException{
+        if (n==-1) throw new NotFoundException("Student didn't find");
        return lisl[n];
     }
 
@@ -55,4 +56,15 @@ class StudentsList {
         }
         System.out.println();
     }
+
+    public static class NotFoundException extends RuntimeException{
+        public NotFoundException(String message){ super(message);}
+
+        @Override
+        public String getMessage() {
+            return "NotFoundException: "+ super.getMessage();
+        }
+    }
 }
+
+
