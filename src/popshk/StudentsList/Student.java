@@ -2,7 +2,7 @@ package popshk.StudentsList;
 
 import java.util.Date;
 
-class Student {
+class Student implements Comparable<Student> {
     private String name;
     private String lastName;
     private Date birthday;
@@ -47,5 +47,10 @@ class Student {
                     .append(this.birthday.getYear()).append("]");
 
                         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Student student) {
+        return this.name.compareTo(student.getName());
     }
 }
