@@ -16,9 +16,9 @@ public class Monitor {
             File f = new File(file);
             if (f.exists() && f.isFile()) {
                 if (event != null)
-                    event.onFileAdded
-                            (file);
-                break; }
+                    event.onFileAdded(file);
+                        break;
+            }
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {}
