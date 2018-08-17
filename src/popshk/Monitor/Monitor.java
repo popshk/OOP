@@ -7,13 +7,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributeView;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.Arrays;
 
 public class Monitor {
     String [] files;
     IntFileEvent event;
+    String setPath = "/home/popshk/Рабочий стол/test1/";
 
     public Monitor(String [] files, IntFileEvent event){
-        this.files=files;
+        this.files= Arrays.copyOf(files,files.length);
         this.event=event;
     }
 
@@ -24,7 +26,7 @@ public class Monitor {
         while (true) {
             for (int i=0;i<files.length;i++){
                 if(files[i]!=null){
-                    f = new File(files[i]);
+                    f = new File(setPath+files[i]);
                         if (f.exists() && f.isFile()){
                             files[i]=null;
                             n++;
