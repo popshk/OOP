@@ -1,5 +1,8 @@
 package popshk.Monitor;
 
+import java.io.File;
+import java.util.Arrays;
+
 public class FileEvent implements IntFileEvent {
     @Override
     public void onFileAdded(String s) {
@@ -8,8 +11,11 @@ public class FileEvent implements IntFileEvent {
 
     @Override
     public void onFilesAdded() {
-        System.out.print("Files added");
+        System.out.println("Files added");
     }
 
-
+    @Override
+    public void onNewTxtFileAdded(String s) {
+        System.out.println("File : "+s+" added");
+    }
 }
