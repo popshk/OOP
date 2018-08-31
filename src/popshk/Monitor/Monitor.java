@@ -1,7 +1,6 @@
 package popshk.Monitor;
 
 import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -51,31 +50,27 @@ public class Monitor {
             if (f.exists()&&f.isFile()){
                 if (event!=null){
                     event.onFileAdded(file);
-                        creationFileTime(file);
-                                    break;
+                        break;
                 }
             }
                 WaitingTrigger();
         }
     }
 
-    public void startMonitoring(){
-        while (true){
+    public void startMonitoring(String format) throws IOException {
+        long time = System.currentTimeMillis();
+        boolean b=true;
+        while (b){
             File fdir=new File(file);
                 if (fdir.exists()&&fdir.isDirectory() && event != null){
-                    File [] filesList = fdir.listFiles(new FilenameFilter() {
-                        @Override
-                        public boolean accept(File file, String name) {
-                            return name.endsWith(".txt");
-                        }
-                    });
+                    File [] filesList = fdir.listFiles(new MyFileNameFilter(format));
                     if (filesList.length!=0){
-                        String [] files = fdir.list();
-                            for (int i=0;i<files.length;i++){
-                                if (files[i].endsWith(".txt"))
-                                    event.onNewTxtFileAdded(files[i]);
+                            for (int i=0;i<filesList.length;i++){
+                                if (creationFileTime(filesList[i].getCanonicalPath())>time){
+                                    event.onNewTxtFileAdded(filesList[i].getName());
+                                        b=false;
+                                }
                             }
-                                break;
                     }
                 }
                 WaitingTrigger();
@@ -89,10 +84,10 @@ public class Monitor {
             System.out.println("Waiting...");
     }
 
-    static void creationFileTime (String file) throws IOException {
+    static long creationFileTime (String file) throws IOException {
         Path path = Paths.get(file);
             BasicFileAttributes view = Files.getFileAttributeView
                 (path,BasicFileAttributeView.class).readAttributes();
-                     System.out.println(view.creationTime());
+                     return view.creationTime().toMillis();
     }
 }

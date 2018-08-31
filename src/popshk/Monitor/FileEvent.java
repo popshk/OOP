@@ -16,6 +16,6 @@ public class FileEvent implements IntFileEvent {
 
     @Override
     public void onNewTxtFileAdded(String s) {
-        System.out.println("File : "+s+" added");
+        System.out.print("File : "+s+" added ");
     }
 }

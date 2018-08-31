@@ -6,7 +6,7 @@ import java.io.IOException;
 public class FilesCreator {
     public static void main(String[] args) throws IOException {
 
-		File file = new File("/home/popshk/Рабочий стол/test1/1.txt");
+		File file = new File("/home/popshk/Рабочий стол/test1/monitor.txt");
 			file.createNewFile();
 
 			/*FileWriter wr = new FileWriter(file);
