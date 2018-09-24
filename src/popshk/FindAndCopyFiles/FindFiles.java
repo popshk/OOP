@@ -1,4 +1,4 @@
-package popshk.FindFiles;
+package popshk.FindAndCopyFiles;
 
 import popshk.Monitor.MyFileNameFilter;
 
@@ -8,16 +8,17 @@ import java.util.ArrayList;
 
 public class FindFiles {
     public static void main(String[] args) {
+        String path="/home/popshk/Рабочий стол/test1/";
         ArrayList<String> list = new ArrayList<>();
 
         try {
-            findFiles("/home/popshk/Рабочий стол/test1/","txt");
+            findFiles(path,"txt");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         try {
-            listAll("/home/popshk/Рабочий стол/test1/",list);
+            listAll(path,list);
         } catch (IOException e) {
             e.printStackTrace();
         }
