@@ -4,13 +4,10 @@ import java.io.*;
 
 public class CopyFiles {
 
-    String srcDir ="/home/popshk/Рабочий стол/test1/";
-    String destDir="/home/popshk/Рабочий стол/test1/testDir";
-
-    public static void copy(String src,String dest) throws IOException {
-      FileInputStream fis =new FileInputStream(new File(src));
+    public static void copy(File src,File dest) throws IOException {
+      FileInputStream fis =new FileInputStream(src);
         try {
-            FileOutputStream fos =new FileOutputStream(new File(dest));
+            FileOutputStream fos =new FileOutputStream(dest);
                 try {
                     byte [] buff=new byte[4096];
                     int lenght;
@@ -25,14 +22,33 @@ public class CopyFiles {
         }
     }
 
-    public static void copyDir (String srcDir,String destDir){
+    public static void copyDir (String srcDir,String destDir) throws IOException {
         File src = new File(srcDir);
         File dest = new File(destDir);
 
+        if(src.isDirectory()){
+            if (!dest.isDirectory()){
+                dest.mkdir();
+            }
+                File [] sfile = src.listFiles();
+                File [] dfile = new File[sfile.length];
+                    for (int i=0;i<sfile.length;i++){
+                        String from = sfile[i].getPath();
+                        String to = from.replace(srcDir,destDir);
+                        dfile[i] = new File(to);
+                            copy(sfile[i],dfile[i]);
+                    }
+        } else System.out.println("Destination directory not found!!!");
 
     }
 
     public static void main(String[] args) {
-
+        String srcDir ="/home/popshk/Рабочий стол/test1/test2/";
+        String destDir="/home/popshk/Рабочий стол/testDir/";
+        try {
+            copyDir(srcDir,destDir);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
