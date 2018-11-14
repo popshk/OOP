@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Scanner;
+
 
 public class DateThread {
     public static void main(String[] args) throws IOException {
@@ -27,7 +27,7 @@ class myThread extends Thread{
                 System.out.println(new SimpleDateFormat("HH:mm:ss").format(new Date()));
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
                interrupt();
             }
 
