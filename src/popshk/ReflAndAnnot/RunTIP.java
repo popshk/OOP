@@ -3,7 +3,7 @@ package popshk.ReflAndAnnot;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class main {
+public class RunTIP {
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
             Class myClass = TwoInt.class;
 
