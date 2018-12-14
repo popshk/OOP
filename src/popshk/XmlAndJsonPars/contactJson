@@ -1,0 +1,11 @@
+{
+   "name": "Dmitry",
+   "surname": "Popkov",
+   "phones": ["044-256-03-76", "063-524-63-18"],
+   "sites": ["http://site1.com", "http://site2.com"],
+   "address": {
+      "country": "Ukraine",
+      "city": "Kyiv",
+      "street": "Pushkina 25"
+   }
+}

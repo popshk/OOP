@@ -2,44 +2,26 @@ package popshk.XmlAndJsonPars;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-@XmlRootElement(name = "trainList")
+@XmlRootElement(name = "trains")
 public class Trains {
+    @XmlElement(name = "train")
+    private List<Train> list = new ArrayList<>();
 
-    private int id;
-    private String from;
-    private String to;
-    private Date date;
-    private Date departure;
+        public void add(Train train){
+            list.add(train);
+        }
 
-    public Trains(){};
+        public List<Train> get(){
+            return list;
+        }
 
-    public Trains(int id, String from, String to, Date date, Date departure) {
-        this.id = id;
-        this.from = from;
-        this.to = to;
-        this.date = date;
-        this.departure = departure;
-    }
-    @XmlElement
-    public void setId(int id) {
-        this.id = id;
-    }
-    @XmlElement
-    public void setFrom(String from) {
-        this.from = from;
-    }
-    @XmlElement
-    public void setTo(String to) {
-        this.to = to;
-    }
-    @XmlElement
-    public void setDate(Date date) {
-        this.date = date;
-    }
-    @XmlElement
-    public void setDeparture(Date departure) {
-        this.departure = departure;
+
+    @Override
+    public String toString() {
+        return Arrays.deepToString(list.toArray());
     }
 }
